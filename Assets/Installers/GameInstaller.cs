@@ -6,8 +6,18 @@ public class GameInstaller : MonoInstaller
     public VideoSelection VideoSelection;
     public Smartphone Smartphone;
 
+    public AudioSource AudioSource;
+
     public override void InstallBindings()
     {
+        Container.BindInterfacesAndSelfTo<AudioSource>()
+            .FromInstance(AudioSource);
+
+        Container.BindInterfacesAndSelfTo<AudioManager>()
+            .FromNew()
+            .AsSingle()
+            .NonLazy();
+
         Container.BindInterfacesAndSelfTo<GameController>()
             .FromNew()
             .AsSingle()

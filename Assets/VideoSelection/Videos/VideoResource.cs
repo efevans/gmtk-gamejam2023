@@ -10,4 +10,5 @@ public class VideoResource : ScriptableObject
     public string Title;
     public string UploaderName;
     public Sprite UploadedImage;
+    public AudioClip Audio;
 }

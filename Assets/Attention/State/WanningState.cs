@@ -12,6 +12,11 @@ namespace FrugalTime.Tick
         public override void Tick(float delta)
         {
             _attention.Amount = math.max(0, _attention.Amount - (delta * _attention.MySettings.DecaySpeed));
+
+            if (_attention.Amount <= 0)
+            {
+                _attention.SetState(new DepletedState(_attention));
+            }
         }
     }
 }

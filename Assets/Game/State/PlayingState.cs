@@ -15,6 +15,11 @@ namespace FrugalTime.Game
         {
             _controller.Smartphone.SetPlayingVideo(video);
         }
+
+        public override void AttentionDepleted()
+        {
+            _controller.SetState(new PlayerLostState(_controller));
+        }
     }
 
 }

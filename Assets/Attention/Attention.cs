@@ -29,10 +29,17 @@ namespace FrugalTime.Tick
         private State _state;
         public Settings MySettings { get; private set; }
 
+        private Action _onDepleted;
+
         [Inject]
         public void Construct(Settings settings)
         {
             MySettings = settings;
+        }
+
+        public void Init(Action onDepleted)
+        {
+            _onDepleted = onDepleted;
         }
 
         private void OnEnable()
@@ -45,6 +52,11 @@ namespace FrugalTime.Tick
         void Update()
         {
             _state.Tick(Time.deltaTime);
+        }
+
+        public void OnDepleted()
+        {
+            _onDepleted();
         }
 
         public void SetState(State newState)

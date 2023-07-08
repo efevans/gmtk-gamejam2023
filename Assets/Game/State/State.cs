@@ -15,9 +15,7 @@ namespace FrugalTime.Game
         }
 
         public virtual void Start() { }
-        public virtual void PlayVideo(Video video)
-        {
-
-        }
+        public virtual void PlayVideo(Video video) { }
+        public virtual void AttentionDepleted() { }
     } 
 }

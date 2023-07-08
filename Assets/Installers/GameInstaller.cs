@@ -8,6 +8,7 @@ public class GameInstaller : MonoInstaller
     public VideoSelection VideoSelection;
     public Smartphone Smartphone;
     public Attention Attention;
+    public GameInfo GameInfo;
 
     public AudioSource AudioSource;
 
@@ -36,6 +37,10 @@ public class GameInstaller : MonoInstaller
 
         Container.BindInterfacesAndSelfTo<Attention>()
             .FromInstance(Attention)
+            .AsSingle();
+
+        Container.BindInterfacesAndSelfTo<GameInfo>()
+            .FromInstance(GameInfo)
             .AsSingle();
     }
 }

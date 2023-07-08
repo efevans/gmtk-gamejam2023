@@ -10,8 +10,9 @@ public class GameController : IInitializable
         Debug.Log("GameController initialize");
     }
 
-    public GameController(List<Video> videos)
+    [Inject]
+    public GameController(VideoSelection videoSelection)
     {
-        Debug.Log($"GameController constructor, video count is {videos.Count}");
+        videoSelection.InitVideoSelection(new VideoSelection.VideoSelectionSettings() { OnSelect = (Video video) => { Debug.Log("clicked!"); } }); 
     }
 }

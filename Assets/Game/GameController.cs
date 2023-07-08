@@ -3,28 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class GameController : IInitializable
+namespace FrugalTime.Game
 {
-    private readonly Smartphone _smartphone;
-
-    public void Initialize()
+    public class GameController : IInitializable
     {
-        Debug.Log("GameController initialize");
-    }
+        public Smartphone Smartphone { get; private set; }
 
-    [Inject]
-    public GameController(VideoSelection videoSelection, Smartphone smartphone)
-    {
-        videoSelection.InitVideoSelection(new VideoSelection.VideoSelectionSettings()
+        private State _state;
+
+        public void Initialize()
         {
-            OnSelect = OnVideoSelectCallback
-        });
-        _smartphone = smartphone;
-    }
+            Debug.Log("GameController initialize");
+            SetState(new PlayingState(this));
+        }
 
-    private void OnVideoSelectCallback(Video video)
-    {
-        Debug.Log("clicked!");
-        _smartphone.SetPlayingVideo(video);
+        [Inject]
+        public GameController(VideoSelection videoSelection, Smartphone smartphone)
+        {
+            Debug.Log("GameController constructor");
+            videoSelection.InitVideoSelection(new VideoSelection.VideoSelectionSettings()
+            {
+                OnSelect = OnVideoSelectCallback
+            });
+            Smartphone = smartphone;
+        }
+
+        public void SetState(State state)
+        {
+            _state = state;
+            _state.Start();
+        }
+
+        private void OnVideoSelectCallback(Video video)
+        {
+            _state.PlayVideo(video);
+        }
     }
 }

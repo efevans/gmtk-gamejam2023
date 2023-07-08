@@ -1,3 +1,4 @@
+using FrugalTime.Game;
 using FrugalTime.Tick;
 using UnityEngine;
 using Zenject;

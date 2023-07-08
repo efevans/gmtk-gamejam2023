@@ -1,3 +1,4 @@
+using FrugalTime.Tick;
 using UnityEngine;
 using Zenject;
 
@@ -5,6 +6,7 @@ public class GameInstaller : MonoInstaller
 {
     public VideoSelection VideoSelection;
     public Smartphone Smartphone;
+    public Attention Attention;
 
     public AudioSource AudioSource;
 
@@ -29,6 +31,10 @@ public class GameInstaller : MonoInstaller
 
         Container.BindInterfacesAndSelfTo<Smartphone>()
             .FromInstance(Smartphone)
+            .AsSingle();
+
+        Container.BindInterfacesAndSelfTo<Attention>()
+            .FromInstance(Attention)
             .AsSingle();
     }
 }

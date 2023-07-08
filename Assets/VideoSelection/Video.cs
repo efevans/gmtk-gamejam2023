@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Video : MonoBehaviour, IPointerClickHandler
 {
+    public Image Image;
+
     private Action<Video> _onSelect;
 
     public void InitVideo(Settings videoSettings)

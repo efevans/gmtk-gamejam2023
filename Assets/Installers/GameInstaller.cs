@@ -4,6 +4,7 @@ using Zenject;
 public class GameInstaller : MonoInstaller
 {
     public VideoSelection VideoSelection;
+    public Smartphone Smartphone;
 
     public override void InstallBindings()
     {
@@ -14,6 +15,10 @@ public class GameInstaller : MonoInstaller
 
         Container.BindInterfacesAndSelfTo<VideoSelection>()
             .FromInstance(VideoSelection)
+            .AsSingle();
+
+        Container.BindInterfacesAndSelfTo<Smartphone>()
+            .FromInstance(Smartphone)
             .AsSingle();
     }
 }

@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttentionSettings:
     DecaySpeed: 0.07
-    DecayAcceleration: 5
+    DecayAcceleration: 2
     SatisfyRecover: 0.3
     SatisfiedDurationMinimum: 4
     SatisfiedDurationMaximum: 5
+    CorrectChoice: {fileID: 8300000, guid: 8048abf177d7c14409c0002a19426ac5, type: 3}
     Desires:
     - Text: Something cute and fluffy...
       FulfillingGenres: 00000000

@@ -13,9 +13,15 @@ public class AudioManager
         AudioSource = audioSource;
     }
 
+    public void PlayShortClip(AudioClip clip)
+    {
+        AudioSource.PlayOneShot(clip);
+    }
+
     public void PlayClip(AudioClip clip)
     {
-        AudioSource.clip = clip;
+        _currentAudioClip = clip;
+        AudioSource.clip = _currentAudioClip;
         AudioSource.loop = true;
         AudioSource.Play();
     }

@@ -6,3 +6,6 @@ Dog Park BGM: Tea In Autmun https://dova-s.jp/bgm/play15292.html
 Cockroach BGM: Heart beat 2.Calm rhythm.Blood Flows In The veins https://freesound.org/people/newlocknew/sounds/612642/
 Detective BGM: まるでサスペンスドラマ～犯人は語… https://dova-s.jp/bgm/play11546.html
 Baseball BGM: Welcome_to_the_thema_park https://dova-s.jp/bgm/play8745.html
+
+SE:
+Correct Choice SE: 正解・ピンポン音 https://dova-s.jp/se/play901.html

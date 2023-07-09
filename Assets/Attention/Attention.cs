@@ -15,6 +15,8 @@ namespace FrugalTime.Tick
         [SerializeField]
         private Image RightBar;
 
+        public AudioManager AudioManager { get; private set; }
+
         public Desire Desire { get; private set; }
 
         private float _amount;
@@ -38,10 +40,11 @@ namespace FrugalTime.Tick
         private Action _onDepleted;
 
         [Inject]
-        public void Construct(Settings settings, Desire desire)
+        public void Construct(Settings settings, Desire desire, AudioManager audioManager)
         {
             MySettings = settings;
             Desire = desire;
+            AudioManager = audioManager;
         }
 
         public void Init(Action onDepleted)
@@ -98,6 +101,7 @@ namespace FrugalTime.Tick
             public float SatisfyRecover;
             public float SatisfiedDurationMinimum;
             public float SatisfiedDurationMaximum;
+            public AudioClip CorrectChoice;
             public List<Desire.Example> Desires;
         }
     }

@@ -17,12 +17,12 @@ public class Desire : MonoBehaviour
     public void DisplayInfoText(string text)
     {
         SetText(text);
-        StartCoroutine(MoveToEndpoint(DisplayTranslateEndpoint.position, 2f));
+        StartCoroutine(MoveToEndpoint(DisplayTranslateEndpoint.position, 1.4f));
     }
 
     public void MoveBack()
     {
-        StartCoroutine(MoveToEndpoint(DisplayTranslateStartpoint.position, 1.7f));
+        StartCoroutine(MoveToEndpoint(DisplayTranslateStartpoint.position, 1.2f));
     }
 
     private IEnumerator MoveToEndpoint(Vector2 endpoint, float time)

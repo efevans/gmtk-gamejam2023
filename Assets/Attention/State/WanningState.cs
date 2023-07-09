@@ -44,6 +44,7 @@ namespace FrugalTime.Tick
         {
             if (VideoSatisfies(video))
             {
+                _attention.AudioManager.PlayShortClip(_attention.MySettings.CorrectChoice);
                 _attention.Desire.MoveBack();
                 _attention.Amount = Mathf.Min(1, _attention.Amount + _attention.MySettings.SatisfyRecover);
                 _attention.SetState(new SatisfiedState(_attention)); 

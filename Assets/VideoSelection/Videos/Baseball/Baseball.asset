@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Thumbnail: {fileID: 21300000, guid: 25671db295daf5d44ae6bc36b7c719ed, type: 3}
   VideoImage: {fileID: 21300000, guid: e9b3a978810199c428702c983b299f38, type: 3}
-  Title: Youske Nakamura pitches fifth perfect game of season
-  UploaderName: giants
+  Title: Nakamura pitches fifth perfect game of season
+  UploaderName: giantsofficial
   UploadedImage: {fileID: 21300000, guid: ff9071a65bc0bd34385a17c0ef636d00, type: 3}
   Audio: {fileID: 8300000, guid: 24aa200bbb4042d45af037f36ddc2db9, type: 3}
   GenreList: 0200000008000000

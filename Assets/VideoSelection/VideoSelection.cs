@@ -37,7 +37,7 @@ public class VideoSelection : MonoBehaviour
         EnableVideos();
     }
 
-    private void EnableVideos()
+    public void EnableVideos()
     {
         foreach (var v in _videos)
         {
@@ -45,7 +45,7 @@ public class VideoSelection : MonoBehaviour
         }
     }
 
-    private void DisableVideos()
+    public void DisableVideos()
     {
         foreach (var v in _videos)
         {

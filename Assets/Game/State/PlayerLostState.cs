@@ -24,6 +24,7 @@ namespace FrugalTime.Game
         {
             _controller.GameInfo.DisplayInfoText(_endingTexts[_cursor]);
             _controller.EndTime = DateTime.Now;
+            _controller.VideoSelection.DisableVideos();
         }
 
         public override void OnAdvance()

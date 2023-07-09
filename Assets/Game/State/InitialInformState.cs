@@ -14,9 +14,10 @@ namespace FrugalTime.Game
             "As a recommender here, your role will be to keep the fleshclumps entertained",
             "See that green bar at the top? That's their attention span",
             "Don't let that deplete all the way",
-            "In order to accomplish that, your duty is to recommend them videos they will watch",
+            "In order to accomplish that, recommend them videos they will watch",
+            "They won't explicitly tell you which, so you'll need to intuit what they'll like from their thoughts",
             "Keep them engaged, you know?",
-            "Avoid recommending what they don't want, that's a quick way towards bankruptcy"
+            "There's a short delay before you can recommend another video, so try to satisfy them with the first"
         };
         private int _cursor = 0;
 

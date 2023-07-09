@@ -205,6 +205,7 @@ MonoBehaviour:
   Smartphone: {fileID: 1942564481}
   Attention: {fileID: 1990803010}
   GameInfo: {fileID: 648212395}
+  Desire: {fileID: 986568579}
   AudioSource: {fileID: 519420033}
 --- !u!1 &76171885
 GameObject:
@@ -1113,6 +1114,7 @@ GameObject:
   - component: {fileID: 986568576}
   - component: {fileID: 986568578}
   - component: {fileID: 986568577}
+  - component: {fileID: 986568579}
   m_Layer: 5
   m_Name: Desire
   m_TagString: Untagged
@@ -1179,6 +1181,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986568575}
   m_CullTransparentMesh: 1
+--- !u!114 &986568579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986568575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76617f599693bb442a53af5edca46a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 76171887}
+  DisplayTranslateStartpoint: {fileID: 1400876218}
+  DisplayTranslateEndpoint: {fileID: 2099654847}
 --- !u!1 &1078662889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1706,7 +1723,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1410672616
 PrefabInstance:
@@ -2003,7 +2020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.87058824}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.94509804}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3080,7 +3097,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1803180596061523058
 PrefabInstance:

@@ -46,6 +46,7 @@ namespace FrugalTime.Game
         private void OnVideoSelectCallback(Video video)
         {
             _state.PlayVideo(video);
+            Attention.OnVideoSelected(video);
         }
 
         private void OnAttentionDepletedCallback()

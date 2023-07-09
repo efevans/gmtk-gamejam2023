@@ -18,3 +18,4 @@ MonoBehaviour:
   UploaderName: dogs4lyfe
   UploadedImage: {fileID: 21300000, guid: 532d73cceb22db44badb3bad578edc05, type: 3}
   Audio: {fileID: 8300000, guid: 40d949a0b91e9014b8a968ea8b315cb4, type: 3}
+  GenreList: 000000000d000000

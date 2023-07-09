@@ -12,22 +12,31 @@ public class Desire : MonoBehaviour
     [SerializeField]
     private Transform DisplayTranslateEndpoint;
 
-
-
-    private IEnumerator MoveToEndpoint(Vector2 endpoint)
+    public void DisplayInfoText(string text)
     {
-        float timeToMove = 1f;
-        float startY = transform.position.y;
-        float moveDistance = CalculateJumpVector(endpoint.y, startY);
+        SetText(text);
+        StartCoroutine(MoveToEndpoint(DisplayTranslateEndpoint.position, 2f));
+    }
+
+    public void MoveBack()
+    {
+        StartCoroutine(MoveToEndpoint(DisplayTranslateStartpoint.position, 1f));
+    }
+
+    private IEnumerator MoveToEndpoint(Vector2 endpoint, float time)
+    {
+        float timeToMove = time;
+        float startX = transform.position.x;
+        float moveDistance = CalculateJumpVector(endpoint.x, startX);
 
         float t = 0;
 
         while (t < 1)
         {
             t += Time.deltaTime / timeToMove;
-            float currY = startY + moveDistance * Mathf.Sin(t * Mathf.PI / 2);
+            float currX = startX + moveDistance * Mathf.Sin(t * Mathf.PI / 2);
 
-            transform.position = new Vector2(transform.position.x, currY);
+            transform.position = new Vector2(currX, transform.position.y);
 
             yield return null;
         }

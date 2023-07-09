@@ -48,6 +48,25 @@ public class Video : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    public enum Genre
+    {
+        Cute,
+        Funny,
+        Cool,
+        VideoGame,
+        Informative,
+        News,
+        Sports,
+        Horrific,
+        Action,
+        Exotic,
+        Unique,
+        Disgusting,
+        ASMR,
+        Chill,
+        SelfImprovement
+    }
+
     public class Settings
     {
         public Action<Video> OnSelect;

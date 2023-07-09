@@ -14,6 +14,8 @@ namespace FrugalTime.Tick
         [SerializeField]
         private Image RightBar;
 
+        public Desire Desire { get; private set; }
+
         private float _amount;
         public float Amount
         {
@@ -28,13 +30,17 @@ namespace FrugalTime.Tick
 
         private State _state;
         public Settings MySettings { get; private set; }
+        public float DecayRate { get; private set; }
 
         private Action _onDepleted;
 
         [Inject]
-        public void Construct(Settings settings)
+        public void Construct(Settings settings, Desire desire)
         {
             MySettings = settings;
+            DecayRate = MySettings.DecaySpeed;
+
+            Desire = desire;
         }
 
         public void Init(Action onDepleted)
@@ -46,6 +52,11 @@ namespace FrugalTime.Tick
         public void DoStart()
         {
             _state.OnGameStart();
+        }
+
+        public void OnVideoSelected(Video video)
+        {
+            _state.DesireFulfilled();
         }
 
         private void OnEnable()
@@ -75,6 +86,9 @@ namespace FrugalTime.Tick
         public class Settings
         {
             public float DecaySpeed;
+            public float SatisfyRecover;
+            public float SatisfiedDurationMinimum;
+            public float SatisfiedDurationMaximum;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace FrugalTime.Game
             "Nice job on your first day, A-45",
             "",
             "Keep that up that pace and we may just become the next big hit!",
-            "(Thank you for playing! There is no replace screen so if you wish to replay, please refresh the brower)"
+            "(Thank you for playing! There is no replay screen so if you wish to replay, please refresh the brower)"
         };
         private int _cursor = 0;
 

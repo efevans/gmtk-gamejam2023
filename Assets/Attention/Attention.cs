@@ -42,10 +42,16 @@ namespace FrugalTime.Tick
             _onDepleted = onDepleted;
         }
 
+        // Do start starts the component to tick down, Start is already take but same idea
+        public void DoStart()
+        {
+            _state.OnGameStart();
+        }
+
         private void OnEnable()
         {
             Amount = 1f;
-            SetState(new WanningState(this));
+            SetState(new WaitingToStartState(this));
         }
 
         // Update is called once per frame

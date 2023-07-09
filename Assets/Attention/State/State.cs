@@ -11,5 +11,6 @@ namespace FrugalTime.Tick
 
 		public virtual void Start() { }
 		public virtual void Tick(float delta) { }
-	} 
+		public virtual void OnGameStart() { }
+    } 
 }

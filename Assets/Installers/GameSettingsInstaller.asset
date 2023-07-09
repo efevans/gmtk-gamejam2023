@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GameSettingsInstaller
   m_EditorClassIdentifier: 
   AttentionSettings:
-    DecaySpeed: 0.04
+    DecaySpeed: 0.07

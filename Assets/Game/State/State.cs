@@ -1,4 +1,5 @@
 using FrugalTime.Game;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,5 +18,6 @@ namespace FrugalTime.Game
         public virtual void Start() { }
         public virtual void PlayVideo(Video video) { }
         public virtual void AttentionDepleted() { }
+        public virtual void OnAdvance() { }
     } 
 }

@@ -8,6 +8,8 @@ public class GameInfo : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _text;
     [SerializeField]
+    private TextMeshProUGUI _spaceToContinueText;
+    [SerializeField]
     private Transform DisplayTranslateStartpoint;
     [SerializeField]
     private Transform DisplayTranslateEndpoint;
@@ -15,14 +17,30 @@ public class GameInfo : MonoBehaviour
     public void DisplayInfoText(string text)
     {
         SetText(text);
-        StartCoroutine(MoveToEndpoint());
+        StartCoroutine(MoveToEndpoint(DisplayTranslateEndpoint.position));
     }
 
-    private IEnumerator MoveToEndpoint()
+    public void ContinueText(string text)
+    {
+        SetText(text);
+    }
+
+    public void MoveBack()
+    {
+        _spaceToContinueText.gameObject.SetActive(false);
+        StartCoroutine(MoveToEndpoint(DisplayTranslateStartpoint.position));
+    }
+
+    public void HideContinueText()
+    {
+        _spaceToContinueText.gameObject.SetActive(false);
+    }
+
+    private IEnumerator MoveToEndpoint(Vector2 endpoint)
     {
         float timeToMove = 1f;
-        float moveDistance = CalculateJumpVector();
-        float startY = DisplayTranslateStartpoint.position.y;
+        float startY = transform.position.y;
+        float moveDistance = CalculateJumpVector(endpoint.y, startY);
 
         float t = 0;
 
@@ -35,11 +53,13 @@ public class GameInfo : MonoBehaviour
 
             yield return null;
         }
+
+        _spaceToContinueText.gameObject.SetActive(true);
     }
 
-    private float CalculateJumpVector()
+    private float CalculateJumpVector(float start, float end)
     {
-        return DisplayTranslateEndpoint.position.y - DisplayTranslateStartpoint.position.y;
+        return start - end;
     }
 
     private void SetText(string text)

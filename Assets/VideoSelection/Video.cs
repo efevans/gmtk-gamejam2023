@@ -73,6 +73,8 @@ namespace FrugalTime.Playable
             VideoGame,
             Informative,
             News,
+            Intriguing,
+            Suspense,
             Sports,
             Horrific,
             Action,

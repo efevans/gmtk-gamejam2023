@@ -1,3 +1,8 @@
 Dog, Human, and setting resources obtained from いらすとや https://www.irasutoya.com/
 
-BGM and sound effects obtained from DOVA SYNDROME https://dova-s.jp/se/
+BGM and sound effects obtained from DOVA SYNDROME https://dova-s.jp/, https://freesound.org/
+Interview BGM: 昼下がりのお買い物 https://dova-s.jp/bgm/play11658.html
+Dog Park BGM: Tea In Autmun https://dova-s.jp/bgm/play15292.html
+Cockroach BGM: Heart beat 2.Calm rhythm.Blood Flows In The veins https://freesound.org/people/newlocknew/sounds/612642/
+Detective BGM: まるでサスペンスドラマ～犯人は語… https://dova-s.jp/bgm/play11546.html
+Baseball BGM: Welcome_to_the_thema_park https://dova-s.jp/bgm/play8745.html

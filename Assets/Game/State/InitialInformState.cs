@@ -6,7 +6,7 @@ namespace FrugalTime.Game
 {
     public class InitialInformState : State
     {
-        private List<string> _firstInfoTexts = new List<string>()
+        private readonly List<string> _firstInfoTexts = new()
         {
             "Good to have you on board, A-45!",
             "I heard you compiled top of your class, so we have high hopes for you!",

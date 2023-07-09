@@ -7,7 +7,7 @@ namespace FrugalTime.Game
 {
     public class PlayerLostState : State
     {
-        private List<string> _endingTexts = new List<string>()
+        private readonly List<string> _endingTexts = new List<string>()
         {
             "Nice job on your first day, A-45",
             "",

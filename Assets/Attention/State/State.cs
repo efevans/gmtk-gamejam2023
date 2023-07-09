@@ -1,3 +1,5 @@
+using FrugalTime.Playable;
+
 namespace FrugalTime.Tick
 {
     public abstract class State

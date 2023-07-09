@@ -1,3 +1,4 @@
+using FrugalTime.Playable;
 using FrugalTime.Tick;
 using System;
 using System.Collections;
@@ -12,6 +13,7 @@ namespace FrugalTime.Game
         public Smartphone Smartphone { get; private set; }
         public Attention Attention { get; private set; }
         public GameInfo GameInfo { get; private set; }
+        public VideoSelection VideoSelection { get; private set; }
 
         private State _state;
         public DateTime StartTime;
@@ -28,10 +30,7 @@ namespace FrugalTime.Game
         public GameController(VideoSelection videoSelection, Smartphone smartphone, Attention attention, GameInfo gameInfo)
         {
             Debug.Log("GameController constructor");
-            videoSelection.InitVideoSelection(new VideoSelection.VideoSelectionSettings()
-            {
-                OnSelect = OnVideoSelectCallback
-            });
+            VideoSelection = videoSelection;
             Smartphone = smartphone;
             Attention = attention;
             GameInfo = gameInfo;
@@ -43,7 +42,7 @@ namespace FrugalTime.Game
             _state.Start();
         }
 
-        private void OnVideoSelectCallback(Video video)
+        public void OnVideoSelectCallback(Video video)
         {
             _state.PlayVideo(video);
             Attention.OnVideoSelected(video);

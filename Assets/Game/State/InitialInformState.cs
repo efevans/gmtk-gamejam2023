@@ -16,7 +16,7 @@ namespace FrugalTime.Game
             "In order to accomplish that, recommend them videos",
             "You'll need to intuit what they'll like from their thoughts",
             "Keep them engaged, you know?",
-            "There's a short delay before you can recommend another video, so try to satisfy them with the first try.",
+            "There's a short delay before you can recommend another video, so try to satisfy them with the first try",
             "Finally, we can't keep everyone forever so their attention will start to decrease faster as time goes on"
         };
         private int _cursor = 0;

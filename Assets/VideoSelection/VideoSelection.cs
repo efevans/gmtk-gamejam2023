@@ -1,3 +1,4 @@
+using FrugalTime.Playable;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,10 +13,44 @@ public class VideoSelection : MonoBehaviour
 
     public void InitVideoSelection(VideoSelectionSettings videoSelectionSettings)
     {
+        Debug.Log("initializing selection");
         _onVideoSelect = videoSelectionSettings.OnSelect;
 
-        Video.Settings settings = new() { OnSelect = _onVideoSelect };
+        Video.Settings settings = new() { OnSelect = OnSelect };
         _videos.ForEach(v => v.InitVideo(settings));
+    }
+
+    private void OnSelect(Video video)
+    {
+        video.PlayingNow.gameObject.SetActive(true);
+        _videos.ForEach(v => { if (v != video) v.PlayingNow.gameObject.SetActive(false); });
+        _onVideoSelect(video);
+        StartCoroutine(LockVideosTemporarily());
+    }
+
+    private IEnumerator LockVideosTemporarily()
+    {
+        DisableVideos();
+
+        yield return new WaitForSeconds(2.0f);
+
+        EnableVideos();
+    }
+
+    private void EnableVideos()
+    {
+        foreach (var v in _videos)
+        {
+            v.Enable();
+        }
+    }
+
+    private void DisableVideos()
+    {
+        foreach (var v in _videos)
+        {
+            v.Disable();
+        }
     }
 
     public class VideoSelectionSettings

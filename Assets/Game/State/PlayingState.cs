@@ -1,4 +1,5 @@
 using FrugalTime.Game;
+using FrugalTime.Playable;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,6 +17,11 @@ namespace FrugalTime.Game
         {
             _controller.Attention.DoStart();
             _controller.StartTime = DateTime.Now;
+
+            _controller.VideoSelection.InitVideoSelection(new VideoSelection.VideoSelectionSettings()
+            {
+                OnSelect = _controller.OnVideoSelectCallback
+            });
         }
 
         public override void PlayVideo(Video video)

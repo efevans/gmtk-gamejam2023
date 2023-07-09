@@ -1,4 +1,5 @@
 using FrugalTime.Game;
+using FrugalTime.Playable;
 using System;
 using System.Collections;
 using System.Collections.Generic;

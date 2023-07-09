@@ -5,71 +5,88 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Video : MonoBehaviour, IPointerClickHandler
+namespace FrugalTime.Playable
 {
-    public Image Image;
-    [SerializeField]
-    private VideoResource _videoResource;
-
-    public Sprite Thumbnail => _videoResource.Thumbnail;
-    public Sprite VideoImage => _videoResource.VideoImage;
-    public string Title => _videoResource.Title;
-    public Sprite UploaderImage => _videoResource.UploadedImage;
-    public string UploaderName => _videoResource.UploaderName;
-    public AudioClip Audio => _videoResource.Audio;
-    public IReadOnlyList<Genre> Genres => _videoResource.GenreList.AsReadOnly();
-
-    private Action<Video> _onSelect;
-
-    public void InitVideo(Settings videoSettings)
+    public class Video : MonoBehaviour, IPointerClickHandler
     {
-        _onSelect = videoSettings.OnSelect;
-    }
+        public Image Image;
+        public Image Lock;
+        public Image PlayingNow;
 
-    public void Awake()
-    {
-        Image.sprite = Thumbnail;
-        Image.color = Color.white;
-    }
+        [SerializeField]
+        private VideoResource _videoResource;
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData.button == PointerEventData.InputButton.Left)
+        public Sprite Thumbnail => _videoResource.Thumbnail;
+        public Sprite VideoImage => _videoResource.VideoImage;
+        public string Title => _videoResource.Title;
+        public Sprite UploaderImage => _videoResource.UploadedImage;
+        public string UploaderName => _videoResource.UploaderName;
+        public AudioClip Audio => _videoResource.Audio;
+        public IReadOnlyList<Genre> Genres => _videoResource.GenreList.AsReadOnly();
+
+        public Action<Video> OnSelect;
+
+        private VideoState _state;
+
+        public void InitVideo(Settings videoSettings)
         {
-            Debug.Log("Clicked video!");
+            OnSelect = videoSettings.OnSelect;
+            _state.Enable();
+        }
 
-            if (_onSelect != null)
+        public void Enable()
+        {
+            _state.Enable();
+        }
+
+        public void Disable()
+        {
+            _state.Disable();
+        }
+
+        public void Awake()
+        {
+            Image.sprite = Thumbnail;
+            Image.color = Color.white;
+            SetState(new DisabledState(this));
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (eventData.button == PointerEventData.InputButton.Left)
             {
-                _onSelect(this);
-            }
-            else
-            {
-                Debug.Log("no callback for clicking video");
+                _state.OnSelect();
             }
         }
-    }
 
-    public enum Genre
-    {
-        Cute,
-        Funny,
-        Cool,
-        VideoGame,
-        Informative,
-        News,
-        Sports,
-        Horrific,
-        Action,
-        Exotic,
-        Unique,
-        Disgusting,
-        ASMR,
-        Chill,
-        SelfImprovement
-    }
+        public void SetState(VideoState videoState)
+        {
+            _state = videoState;
+            _state.Start();
+        }
 
-    public class Settings
-    {
-        public Action<Video> OnSelect;
-    }
+        public enum Genre
+        {
+            Cute,
+            Funny,
+            Cool,
+            VideoGame,
+            Informative,
+            News,
+            Sports,
+            Horrific,
+            Action,
+            Exotic,
+            Unique,
+            Disgusting,
+            ASMR,
+            Chill,
+            SelfImprovement
+        }
+
+        public class Settings
+        {
+            public Action<Video> OnSelect;
+        }
+    } 
 }

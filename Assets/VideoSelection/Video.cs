@@ -17,6 +17,7 @@ public class Video : MonoBehaviour, IPointerClickHandler
     public Sprite UploaderImage => _videoResource.UploadedImage;
     public string UploaderName => _videoResource.UploaderName;
     public AudioClip Audio => _videoResource.Audio;
+    public IReadOnlyList<Genre> Genres => _videoResource.GenreList.AsReadOnly();
 
     private Action<Video> _onSelect;
 

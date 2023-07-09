@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -20,7 +21,7 @@ public class Desire : MonoBehaviour
 
     public void MoveBack()
     {
-        StartCoroutine(MoveToEndpoint(DisplayTranslateStartpoint.position, 1f));
+        StartCoroutine(MoveToEndpoint(DisplayTranslateStartpoint.position, 1.7f));
     }
 
     private IEnumerator MoveToEndpoint(Vector2 endpoint, float time)
@@ -50,5 +51,12 @@ public class Desire : MonoBehaviour
     private void SetText(string text)
     {
         _text.text = text;
+    }
+
+    [Serializable]
+    public class Example
+    {
+        public string Text;
+        public List<Video.Genre> FulfillingGenres;
     }
 }

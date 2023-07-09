@@ -10,14 +10,14 @@ namespace FrugalTime.Game
         {
             "Good to have you on board, A-45!",
             "I heard you compiled top of your class, so we have high hopes for you!",
-            "You probably know what you're in for, but I'll give you a refresher just in case",
             "As a recommender here, your role will be to keep the fleshclumps entertained",
             "See that green bar at the top? That's their attention span",
             "Don't let that deplete all the way",
-            "In order to accomplish that, recommend them videos they will watch",
-            "They won't explicitly tell you which, so you'll need to intuit what they'll like from their thoughts",
+            "In order to accomplish that, recommend them videos",
+            "You'll need to intuit what they'll like from their thoughts",
             "Keep them engaged, you know?",
-            "There's a short delay before you can recommend another video, so try to satisfy them with the first"
+            "There's a short delay before you can recommend another video, so try to satisfy them with the first try.",
+            "Finally, we can't keep everyone forever so their attention will start to decrease faster as time goes on"
         };
         private int _cursor = 0;
 

@@ -30,7 +30,9 @@ namespace FrugalTime.Tick
 
         private State _state;
         public Settings MySettings { get; private set; }
-        public float DecayRate { get; private set; }
+
+        public float DecayRate;
+        public float SecondsSinceLastDecayRateIncrease = 0;
 
         private Action _onDepleted;
 
@@ -38,14 +40,14 @@ namespace FrugalTime.Tick
         public void Construct(Settings settings, Desire desire)
         {
             MySettings = settings;
-            DecayRate = MySettings.DecaySpeed;
-
             Desire = desire;
         }
 
         public void Init(Action onDepleted)
         {
             _onDepleted = onDepleted;
+            DecayRate = MySettings.DecaySpeed;
+            SecondsSinceLastDecayRateIncrease = 0;
         }
 
         // Do start starts the component to tick down, Start is already take but same idea
@@ -56,7 +58,7 @@ namespace FrugalTime.Tick
 
         public void OnVideoSelected(Video video)
         {
-            _state.DesireFulfilled();
+            _state.VideoShown(video);
         }
 
         private void OnEnable()
@@ -82,13 +84,20 @@ namespace FrugalTime.Tick
             _state.Start();
         }
 
+        public Desire.Example GetRandomDesire()
+        {
+            return MySettings.Desires[UnityEngine.Random.Range(0, MySettings.Desires.Count)];
+        }
+
         [Serializable]
         public class Settings
         {
             public float DecaySpeed;
+            public float DecayAcceleration;
             public float SatisfyRecover;
             public float SatisfiedDurationMinimum;
             public float SatisfiedDurationMaximum;
+            public List<Desire.Example> Desires;
         }
     }
 }
